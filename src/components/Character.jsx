@@ -6,7 +6,7 @@ export default function Character({character}){
     
     return (
         <>  
-        
+            
             
             <Link to={`/${id}`} className=" bg-slate-800 hover:bg-slate-700 hover:text-yellow-400   p-3 rounded-xl">
                 <div className="flex justify-center mb-3">

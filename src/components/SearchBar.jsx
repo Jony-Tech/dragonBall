@@ -27,7 +27,6 @@ export default function SearchBar({setCharacters, fetchData}){
       }
     };
 
-
     function searchCharacter(e){
         e.preventDefault()
         if(name){
@@ -40,6 +39,7 @@ export default function SearchBar({setCharacters, fetchData}){
     }
 
     return(
+        
         <nav className="flex justify-center">
             <form onSubmit={searchCharacter} className="flex justify-center sm:w-3/4 gap-3  text-gray-800">
             <input
@@ -56,5 +56,6 @@ export default function SearchBar({setCharacters, fetchData}){
             </button>
           </form>
         </nav>
+      
     )
 }
