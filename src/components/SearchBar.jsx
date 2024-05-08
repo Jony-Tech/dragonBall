@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
 
-export default function Nav({setCharacters, fetchData}){
+export default function SearchBar({setCharacters, fetchData}){
     const [name, setName] = useState("");
 
     const getCharacter = async () => {
@@ -9,6 +9,7 @@ export default function Nav({setCharacters, fetchData}){
         const response = await fetch(`https://dragonball-api.com/api/characters?name=${name}`);
         
         const result = await response.json();
+        console.log(result);
         setCharacters(result)
         if(result.length === 0){
             Swal.fire({
@@ -39,17 +40,17 @@ export default function Nav({setCharacters, fetchData}){
     }
 
     return(
-        <nav>
-            <form onSubmit={searchCharacter} className="flex justify-center gap-3 text-gray-800">
+        <nav className="flex justify-center">
+            <form onSubmit={searchCharacter} className="flex justify-center sm:w-3/4 gap-3  text-gray-800">
             <input
                 value={name}
                 onChange={e => setName(e.target.value)}
               type="text"
-              className="border appearance-none rounded p-1 focus:outline-none focus:border-gray-600 leading-tight"
+              className="focus:ring-2 bg-slate-800 focus:bg-slate-900 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-300 placeholder-slate-400 rounded-md p-2  ring-1  shadow-sm"
               placeholder="search your character"
             />
             <button type="submit"
-              className="px-2 py-1 bg-blue-700 font-bold hover:bg-blue-800 text-white rounded duration-150"
+              className="px-2 py-1 bg-blue-700 font-medium hover:bg-blue-800 text-white rounded duration-150"
             >
               Search
             </button>
